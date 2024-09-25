@@ -17,13 +17,13 @@ limitations under the License. */
 #include <string>
 
 #include "paddle/common/flags.h"
-#include "paddle/fluid/framework/data_layout.h"
-#include "paddle/fluid/framework/data_type.h"
+#include "paddle/common/layout.h"
 #include "paddle/fluid/framework/library_type.h"
 #include "paddle/phi/common/place.h"
 #include "paddle/phi/core/dense_tensor.h"
 #include "paddle/phi/core/device_context.h"
 #include "paddle/phi/core/enforce.h"
+#include "paddle/phi/core/framework/data_type.h"
 #include "paddle/phi/core/kernel_factory.h"
 
 COMMON_DECLARE_bool(use_stride_kernel);

@@ -24,8 +24,8 @@ limitations under the License. */
 #include "paddle/fluid/framework/garbage_collector.h"
 #include "paddle/fluid/framework/op_info.h"
 #include "paddle/fluid/framework/program_desc.h"
-#include "paddle/fluid/framework/scope.h"
 #include "paddle/fluid/framework/tensor.h"
+#include "paddle/phi/core/framework/scope.h"
 #include "paddle/phi/core/platform/device_context.h"
 #include "paddle/utils/test_macros.h"
 

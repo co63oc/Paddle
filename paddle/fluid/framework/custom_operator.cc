@@ -26,13 +26,13 @@ limitations under the License. */
 #include <vector>
 
 #include "paddle/fluid/eager/api/utils/global_utils.h"
-#include "paddle/fluid/framework/attribute.h"
 #include "paddle/fluid/framework/convert_utils.h"
 #include "paddle/fluid/framework/phi_utils.h"
 #include "paddle/fluid/framework/tensor.h"
 #include "paddle/phi/api/all.h"
 #include "paddle/phi/backends/dynload/dynamic_loader.h"
 #include "paddle/phi/core/compat/convert_utils.h"
+#include "paddle/phi/core/framework/attribute.h"
 #include "paddle/phi/core/platform/device/gpu/gpu_info.h"
 #include "paddle/phi/core/tensor_utils.h"
 #include "paddle/utils/any.h"

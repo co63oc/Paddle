@@ -17,8 +17,8 @@ limitations under the License. */
 #include <string>
 
 #include "paddle/fluid/framework/feed_fetch_type.h"
-#include "paddle/fluid/framework/scope.h"
 #include "paddle/fluid/framework/string_array.h"
+#include "paddle/phi/core/framework/scope.h"
 
 namespace phi {
 class DenseTensor;

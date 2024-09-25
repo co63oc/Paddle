@@ -19,7 +19,7 @@
 #include <unordered_set>
 
 #include "paddle/fluid/framework/op_kernel_type.h"
-#include "paddle/fluid/framework/scope.h"
+#include "paddle/phi/core/framework/scope.h"
 #include "paddle/utils/test_macros.h"
 
 namespace paddle {

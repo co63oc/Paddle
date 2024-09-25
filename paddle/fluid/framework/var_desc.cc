@@ -15,9 +15,9 @@ limitations under the License. */
 #include "paddle/fluid/framework/var_desc.h"
 
 #include "glog/logging.h"
-#include "paddle/fluid/framework/attribute.h"
 #include "paddle/fluid/framework/data_type.h"
 #include "paddle/fluid/platform/enforce.h"
+#include "paddle/phi/core/framework/attribute.h"
 
 namespace paddle {
 namespace framework {

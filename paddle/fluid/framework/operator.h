@@ -25,18 +25,18 @@ limitations under the License. */
 #include <vector>
 
 #include "glog/logging.h"  // For VLOG
-#include "paddle/fluid/framework/attribute.h"
 #include "paddle/fluid/framework/block_desc.h"
 #include "paddle/fluid/framework/convert_utils.h"
 #include "paddle/fluid/framework/lod_tensor.h"
 #include "paddle/fluid/framework/op_info.h"
 #include "paddle/fluid/framework/op_kernel_type.h"
 #include "paddle/fluid/framework/phi_utils.h"
-#include "paddle/fluid/framework/scope.h"
 #include "paddle/fluid/framework/selected_rows_utils.h"
 #include "paddle/fluid/framework/shape_inference.h"
 #include "paddle/fluid/framework/tensor.h"
 #include "paddle/fluid/framework/unused_var_check.h"
+#include "paddle/phi/core/framework/attribute.h"
+#include "paddle/phi/core/framework/scope.h"
 #include "paddle/phi/core/memory/malloc.h"
 #include "paddle/phi/core/platform/device_context.h"
 

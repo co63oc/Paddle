@@ -20,9 +20,9 @@
 #include <unordered_set>
 
 #include "paddle/fluid/framework/op_registry.h"
-#include "paddle/fluid/framework/scope.h"
 #include "paddle/fluid/framework/variable_helper.h"
 #include "paddle/fluid/platform/denormal.h"
+#include "paddle/phi/core/framework/scope.h"
 #ifdef PADDLE_WITH_DNNL
 #include "paddle/fluid/platform/onednn_helper.h"
 #endif

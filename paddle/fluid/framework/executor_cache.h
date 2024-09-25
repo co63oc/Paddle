@@ -26,7 +26,7 @@
 #include "paddle/common/macros.h"
 #include "paddle/fluid/framework/op_proto_maker.h"
 #include "paddle/fluid/framework/program_desc.h"
-#include "paddle/fluid/framework/scope.h"
+#include "paddle/phi/core/framework/scope.h"
 #include "paddle/utils/string/string_helper.h"
 
 #include "paddle/fluid/ir_adaptor/translator/program_translator.h"

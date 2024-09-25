@@ -21,7 +21,7 @@
 
 #include "paddle/fluid/framework/garbage_collector.h"
 #include "paddle/fluid/framework/operator.h"
-#include "paddle/fluid/framework/scope.h"
+#include "paddle/phi/core/framework/scope.h"
 
 namespace paddle {
 namespace framework {
