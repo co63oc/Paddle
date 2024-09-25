@@ -116,7 +116,7 @@ cc_library(
 cc_library(
   data_type
   SRCS data_type.cc
-  DEPS framework_proto)
+  DEPS phi common)
 
 cc_library(
   tensor
@@ -126,7 +126,7 @@ cc_library(
 cc_library(
   lod_tensor
   SRCS lod_tensor.cc
-  DEPS phi common tensor framework_proto version)
+  DEPS phi common tensor version)
 
 cc_library(
   garbage_collector
@@ -141,7 +141,7 @@ cc_library(
 cc_library(
   var_type_traits
   SRCS var_type_traits.cc
-  DEPS framework_proto scope phi common)
+  DEPS scope phi common)
 
 # every source file that includes "dnnl.h" must depends on onednn
 # or, the first one should depends on onednn
@@ -223,32 +223,27 @@ cc_library(
 cc_library(
   data_transform
   SRCS data_transform.cc
-  DEPS tensor
-       framework_proto
-       data_device_transform
-       data_type_transform
-       data_layout_transform
-       phi
-       common)
+  DEPS tensor data_device_transform data_type_transform data_layout_transform
+       phi common)
 
 cc_library(
   attribute
   SRCS attribute.cc
-  DEPS framework_proto phi common)
+  DEPS phi common)
 cc_library(
   op_version_proto
   SRCS op_version_proto.cc
-  DEPS framework_proto)
+  DEPS phi common)
 
 cc_library(
   op_version_registry
   SRCS op_version_registry.cc
-  DEPS op_version_proto framework_proto)
+  DEPS op_version_proto phi common)
 
 cc_library(
   op_proto_maker
   SRCS op_proto_maker.cc
-  DEPS framework_proto attribute ops_extra_info glog auto_parallel_proto)
+  DEPS phi common attribute ops_extra_info glog auto_parallel_proto)
 cc_library(
   no_need_buffer_vars_inference
   SRCS no_need_buffer_vars_inference.cc
@@ -256,7 +251,7 @@ cc_library(
 cc_library(
   op_info
   SRCS op_info.cc
-  DEPS attribute framework_proto no_need_buffer_vars_inference)
+  DEPS attribute phi common no_need_buffer_vars_inference)
 cc_library(
   shape_inference
   SRCS shape_inference.cc
@@ -271,7 +266,7 @@ endif()
 cc_library(
   transfer_scope_cache
   SRCS transfer_scope_cache.cc
-  DEPS scope framework_proto device_context)
+  DEPS scope phi common device_context)
 
 cc_library(
   unused_var_check
@@ -399,7 +394,10 @@ cc_library(
   DEPS proto_desc)
 
 if(WITH_PYTHON)
-  py_proto_compile(framework_py_proto SRCS framework.proto data_feed.proto)
+  py_proto_compile(
+    framework_py_proto SRCS
+    ${CMAKE_SOURCE_DIR}/paddle/phi/core/framework/framework.proto
+    data_feed.proto)
   py_proto_compile(trainer_py_proto SRCS trainer_desc.proto data_feed.proto)
   py_proto_compile(distributed_strategy_py_proto SRCS
                    distributed_strategy.proto)
@@ -505,7 +503,6 @@ set(NAIVE_EXECUTOR_DEPS
     denormal
     device_context
     scope
-    framework_proto
     glog
     lod_rank_table
     feed_fetch_method
@@ -568,7 +565,6 @@ if(WITH_DISTRIBUTE)
            op_registry
            device_context
            scope
-           framework_proto
            trainer_desc_proto
            glog
            framework_io
@@ -640,7 +636,6 @@ if(WITH_DISTRIBUTE)
       DEPS op_registry
            device_context
            scope
-           framework_proto
            data_feed_proto
            trainer_desc_proto
            glog
@@ -712,7 +707,6 @@ if(WITH_DISTRIBUTE)
       DEPS op_registry
            device_context
            scope
-           framework_proto
            data_feed_proto
            trainer_desc_proto
            glog
@@ -769,7 +763,6 @@ elseif(WITH_PSLIB)
     DEPS op_registry
          device_context
          scope
-         framework_proto
          data_feed_proto
          trainer_desc_proto
          glog
@@ -813,7 +806,6 @@ else()
     DEPS op_registry
          device_context
          scope
-         framework_proto
          data_feed_proto
          trainer_desc_proto
          glog
@@ -852,7 +844,7 @@ cc_library(
 cc_library(
   prune
   SRCS prune.cc
-  DEPS framework_proto auto_parallel_proto proto_desc)
+  DEPS phi common auto_parallel_proto proto_desc)
 cc_library(
   selected_rows_utils
   SRCS selected_rows_utils.cc
@@ -904,7 +896,6 @@ cc_library(
   SRCS custom_operator.cc
   DEPS tensor
        attribute
-       framework_proto
        op_registry
        operator
        string_helper
@@ -919,7 +910,7 @@ cc_library(
   SRCS type_info.cc type_defs.cc
   DEPS common)
 target_link_libraries(type_info pir op_dialect)
-add_dependencies(type_info framework_proto auto_parallel_proto xxhash)
+add_dependencies(type_info phi auto_parallel_proto xxhash)
 if(WITH_ONEDNN)
   add_dependencies(type_info onednn)
 endif()

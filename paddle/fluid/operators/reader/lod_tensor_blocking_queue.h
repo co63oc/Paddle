@@ -13,4 +13,4 @@
 // limitations under the License.
 
 #pragma once
-#include "paddle/fluid/operators/reader/lod_tensor_blocking_queue.h"
+#include "paddle/phi/core/operators/reader/lod_tensor_blocking_queue.h"
