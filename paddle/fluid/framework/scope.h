@@ -13,4 +13,4 @@ See the License for the specific language governing permissions and
 limitations under the License. */
 
 #pragma once
-#include "paddle/fluid/framework/scope.h"
+#include "paddle/phi/core/framework/scope.h"

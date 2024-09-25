@@ -23,10 +23,10 @@
 
 #include "paddle/phi/common/place.h"
 #include "paddle/phi/core/framework/feed_fetch_type.h"
+#include "paddle/phi/core/framework/lod_tensor_array.h"
 #include "paddle/phi/core/framework/raw_tensor.h"
 #include "paddle/phi/core/framework/string_array.h"
 #include "paddle/phi/core/framework/tensor_ref_array.h"
-#include "paddle/phi/core/tensor_array.h"
 #include "paddle/utils/test_macros.h"
 #ifdef PADDLE_WITH_CUDA
 #include <cudnn.h>

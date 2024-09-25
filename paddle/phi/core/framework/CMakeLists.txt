@@ -1,6 +1,7 @@
 set(FRAMEWORK_SRCS "")
 
 proto_library(framework_proto SRCS framework.proto)
+proto_library(heter_service_proto SRCS heter_service.proto)
 
 list(
   APPEND

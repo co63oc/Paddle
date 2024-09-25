@@ -22,13 +22,13 @@ limitations under the License. */
 
 #include "brpc/channel.h"
 #include "paddle/fluid/distributed/ps/service/sendrecv.pb.h"
-#include "paddle/fluid/framework/data_type.h"
-#include "paddle/fluid/framework/lod_tensor.h"
-#include "paddle/fluid/framework/scope.h"
-#include "paddle/fluid/framework/selected_rows_utils.h"
-#include "paddle/fluid/framework/tensor_util.h"
-#include "paddle/fluid/framework/var_type.h"
 #include "paddle/phi/common/port.h"
+#include "paddle/phi/core/framework/data_type.h"
+#include "paddle/phi/core/framework/lod_tensor.h"
+#include "paddle/phi/core/framework/scope.h"
+#include "paddle/phi/core/framework/selected_rows_utils.h"
+#include "paddle/phi/core/framework/tensor_util.h"
+#include "paddle/phi/core/framework/var_type.h"
 
 namespace butil {
 class IOBuf;

@@ -42,6 +42,7 @@ endif()
 
 set(PHI_DEPS
     framework_proto
+    heter_service_proto
     phi_profiler_proto
     auto_parallel_proto
     glog

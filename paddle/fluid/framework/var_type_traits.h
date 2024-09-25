@@ -13,4 +13,4 @@
 // limitations under the License.
 
 #pragma once
-#include "paddle/fluid/framework/var_type_traits.h"
+#include "paddle/phi/core/framework/var_type_traits.h"

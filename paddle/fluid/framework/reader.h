@@ -13,4 +13,4 @@
 // limitations under the License.
 
 #pragma once
-#include "paddle/fluid/framework/reader.h"
+#include "paddle/phi/core/framework/reader.h"

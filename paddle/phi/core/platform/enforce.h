@@ -13,6 +13,7 @@
 // limitations under the License.
 
 #pragma once
+#define GLOG_NO_ABBREVIATED_SEVERITIES  // msvc conflict logging with windows.h
 #include "glog/logging.h"
 #include "paddle/phi/common/port.h"
 #include "paddle/phi/core/enforce.h"

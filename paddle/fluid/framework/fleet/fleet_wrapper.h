@@ -33,9 +33,9 @@ limitations under the License. */
 #include "paddle/common/macros.h"  // for DISABLE_COPY_AND_ASSIGN
 #include "paddle/fluid/framework/heter_util.h"
 #include "paddle/fluid/framework/program_desc.h"
-#include "paddle/fluid/framework/scope.h"
-#include "paddle/fluid/framework/variable_helper.h"
+#include "paddle/phi/core/framework/scope.h"
 #include "paddle/phi/core/framework/tensor.h"
+#include "paddle/phi/core/framework/variable_helper.h"
 #ifdef PADDLE_WITH_HETERPS
 #include "paddle/phi/core/platform/device/gpu/gpu_types.h"
 #endif

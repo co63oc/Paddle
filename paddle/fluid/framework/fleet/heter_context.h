@@ -32,8 +32,8 @@ limitations under the License. */
 #endif
 
 #include "paddle/fluid/framework/fleet/heter_ps/feature_value.h"
-#include "paddle/fluid/framework/scope.h"
 #include "paddle/phi/core/distributed/ps/thirdparty/round_robin.h"
+#include "paddle/phi/core/framework/scope.h"
 
 #ifdef PADDLE_WITH_PSLIB
 #define CONV2FEATURE_PTR(ptr) \

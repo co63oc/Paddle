@@ -23,8 +23,8 @@ limitations under the License. */
 
 #include "paddle/common/macros.h"
 #include "paddle/fluid/distributed/auto_parallel/dist_attr.h"
-#include "paddle/fluid/framework/attribute.h"
 #include "paddle/fluid/framework/var_desc.h"
+#include "paddle/phi/core/framework/attribute.h"
 #include "paddle/phi/core/framework/type_defs.h"
 #include "paddle/utils/test_macros.h"
 

@@ -104,7 +104,6 @@ foreach(OP_DEF_FILE ${OP_DEF_FILES})
 endforeach()
 file(APPEND ${CMAKE_CURRENT_BINARY_DIR}/op_def.pbtxt "{\"\",\"\"}};\n}")
 
-proto_library(heter_service_proto SRCS heter_service.proto)
 proto_library(data_feed_proto SRCS data_feed.proto)
 proto_library(trainer_desc_proto SRCS trainer_desc.proto DEPS framework_proto
               data_feed_proto)
@@ -586,7 +585,6 @@ if(WITH_DISTRIBUTE)
            graph_to_program_pass
            variable_helper
            data_feed_proto
-           heter_service_proto
            ${BRPC_DEP})
     set(DISTRIBUTE_COMPILE_FLAGS "")
     if(CMAKE_CXX_COMPILER_VERSION VERSION_GREATER 7.0)
@@ -607,11 +605,11 @@ if(WITH_DISTRIBUTE)
     #         data_feed.cc device_worker.cc hogwild_worker.cc hetercpu_worker.cc
     #         downpour_worker.cc downpour_lite_worker.cc downpour_worker_opt.cc data_feed.cu
     #         pull_dense_worker.cc section_worker.cc heter_section_worker.cc device_worker_factory.cc data_set.cc DEPS op_registry
-    #         device_context scope framework_proto data_feed_proto heter_service_proto trainer_desc_proto glog
+    #         device_context scope data_feed_proto trainer_desc_proto glog
     #         index_sampler index_wrapper sampler index_dataset_proto
     #         lod_rank_table framework_io fleet_wrapper heter_wrapper box_wrapper metrics lodtensor_printer feed_fetch_method feed_hook
     #         graph_to_program_pass variable_helper
-    #         heter_service_proto fleet heter_server brpc fleet_executor
+    #         fleet heter_server brpc fleet_executor
     #         graph_gpu_wrapper)
 
     cc_library(
@@ -644,7 +642,6 @@ if(WITH_DISTRIBUTE)
            scope
            framework_proto
            data_feed_proto
-           heter_service_proto
            trainer_desc_proto
            glog
            index_sampler
@@ -661,7 +658,6 @@ if(WITH_DISTRIBUTE)
            feed_hook
            graph_to_program_pass
            variable_helper
-           heter_service_proto
            fleet
            heter_server
            ${${EXTERNAL_BRPC_DEPS}}
@@ -718,7 +714,6 @@ if(WITH_DISTRIBUTE)
            scope
            framework_proto
            data_feed_proto
-           heter_service_proto
            trainer_desc_proto
            glog
            lod_rank_table
@@ -776,7 +771,6 @@ elseif(WITH_PSLIB)
          scope
          framework_proto
          data_feed_proto
-         heter_service_proto
          trainer_desc_proto
          glog
          lod_rank_table
@@ -821,7 +815,6 @@ else()
          scope
          framework_proto
          data_feed_proto
-         heter_service_proto
          trainer_desc_proto
          glog
          lod_rank_table

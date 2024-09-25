@@ -118,4 +118,4 @@ endif()
 cc_library(
   heter_wrapper
   SRCS heter_wrapper.cc
-  DEPS framework_proto device_context heter_service_proto ${BRPC_DEPS})
+  DEPS device_context ${BRPC_DEPS})

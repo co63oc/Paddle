@@ -18,7 +18,7 @@
 #include <mutex>  // NOLINT
 #include <unordered_set>
 
-#include "paddle/fluid/framework/scope.h"
+#include "paddle/phi/core/framework/scope.h"
 
 namespace paddle {
 namespace framework {
