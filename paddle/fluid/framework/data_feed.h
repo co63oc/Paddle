@@ -37,14 +37,14 @@ limitations under the License. */
 #include "paddle/fluid/framework/channel.h"
 #include "paddle/fluid/framework/data_feed.pb.h"
 #include "paddle/fluid/framework/fleet/fleet_wrapper.h"
-#include "paddle/fluid/framework/lod_tensor.h"
 #include "paddle/fluid/framework/reader.h"
 #include "paddle/fluid/framework/variable.h"
-#include "paddle/fluid/platform/timer.h"
+#include "paddle/phi/core/framework/lod_tensor.h"
+#include "paddle/phi/core/platform/timer.h"
 #include "paddle/utils/string/string_helper.h"
 #if defined(PADDLE_WITH_CUDA)
-#include "paddle/fluid/framework/fleet/heter_ps/gpu_graph_utils.h"
 #include "paddle/phi/core/cuda_stream.h"
+#include "paddle/phi/core/framework/fleet/heter_ps/gpu_graph_utils.h"
 #include "paddle/phi/core/platform/cuda_device_guard.h"
 #include "paddle/phi/core/platform/device/gpu/gpu_info.h"
 #endif

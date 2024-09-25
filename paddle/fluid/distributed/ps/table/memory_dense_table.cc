@@ -14,7 +14,7 @@
 
 #include "paddle/fluid/distributed/ps/table/memory_dense_table.h"
 
-#include "paddle/fluid/platform/enforce.h"
+#include "paddle/phi/core/platform/enforce.h"
 
 namespace paddle::distributed {
 

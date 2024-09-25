@@ -17,8 +17,8 @@ limitations under the License. */
 #ifdef PADDLE_WITH_HETERPS
 #include <iostream>
 #ifdef PADDLE_WITH_CUDA
-#include "paddle/fluid/framework/fleet/heter_ps/cudf/managed.cuh"
-#include "paddle/fluid/framework/fleet/heter_ps/gpu_graph_utils.h"
+#include "paddle/phi/core/framework/fleet/heter_ps/cudf/managed.cuh"
+#include "paddle/phi/core/framework/fleet/heter_ps/gpu_graph_utils.h"
 
 namespace paddle {
 namespace framework {

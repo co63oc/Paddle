@@ -88,8 +88,6 @@ cc_library(
 # Manage all device event library
 set(DEVICE_EVENT_LIBS)
 
-cc_library(timer SRCS timer.cc)
-
 cc_library(
   lodtensor_printer
   SRCS lodtensor_printer.cc

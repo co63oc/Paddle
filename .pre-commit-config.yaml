@@ -2,8 +2,8 @@
 exclude: |
     (?x)^(
         patches/.+|
-        paddle/fluid/framework/fleet/heter_ps/cudf/.+|
-        paddle/fluid/distributed/ps/thirdparty/round_robin.h|
+        paddle/phi/core/framework/fleet/heter_ps/cudf/.+|
+        paddle/phi/core/distributed/ps/thirdparty/round_robin.h|
         python/paddle/utils/gast/.+|
         third_party/.+
     )$

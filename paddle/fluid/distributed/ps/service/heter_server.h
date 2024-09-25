@@ -31,13 +31,13 @@ limitations under the License. */
 #include "paddle/fluid/distributed/ps/service/brpc_utils.h"
 #include "paddle/fluid/distributed/ps/service/heter_client.h"
 #include "paddle/fluid/distributed/ps/service/sendrecv.pb.h"
-#include "paddle/fluid/distributed/ps/table/depends/feature_value.h"
 #include "paddle/fluid/framework/blocking_queue.h"
 #include "paddle/fluid/framework/executor.h"
 #include "paddle/fluid/framework/program_desc.h"
 #include "paddle/fluid/framework/scope.h"
 #include "paddle/fluid/framework/tensor.h"
 #include "paddle/fluid/framework/variable_helper.h"
+#include "paddle/phi/core/distributed/ps/table/depends/feature_value.h"
 #include "paddle/phi/core/platform/profiler.h"
 
 namespace google {

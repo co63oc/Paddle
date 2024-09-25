@@ -27,8 +27,8 @@
 #include "paddle/common/enforce.h"
 #include "paddle/fluid/distributed/ps/table/accessor.h"
 #include "paddle/fluid/distributed/ps/table/common_table.h"
-#include "paddle/fluid/distributed/ps/table/depends/feature_value.h"
-#include "paddle/fluid/distributed/ps/table/depends/geo_recorder.h"
+#include "paddle/phi/core/distributed/ps/table/depends/feature_value.h"
+#include "paddle/phi/core/distributed/ps/table/depends/geo_recorder.h"
 #include "paddle/utils/string/string_helper.h"
 
 namespace paddle {

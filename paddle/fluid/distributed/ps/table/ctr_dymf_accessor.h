@@ -21,8 +21,8 @@
 #include "paddle/fluid/distributed/common/registerer.h"
 #include "paddle/fluid/distributed/ps/table/accessor.h"
 #include "paddle/fluid/distributed/ps/table/sparse_sgd_rule.h"
-#include "paddle/fluid/distributed/ps/thirdparty/round_robin.h"
 #include "paddle/fluid/distributed/the_one_ps.pb.h"
+#include "paddle/phi/core/distributed/ps/thirdparty/round_robin.h"
 
 namespace paddle {
 namespace distributed {

@@ -25,7 +25,7 @@
 
 #include "glog/logging.h"
 #include "paddle/fluid/distributed/ps/table/graph/graph_weighted_sampler.h"
-#include "paddle/fluid/platform/enforce.h"
+#include "paddle/phi/core/platform/enforce.h"
 #include "paddle/utils/string/string_helper.h"
 
 namespace paddle {

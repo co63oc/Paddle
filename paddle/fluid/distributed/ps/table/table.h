@@ -25,12 +25,12 @@
 #include "paddle/common/macros.h"
 #include "paddle/fluid/distributed/common/afs_warpper.h"
 #include "paddle/fluid/distributed/ps/table/accessor.h"
-#include "paddle/fluid/distributed/ps/table/depends/sparse_utils.h"
 #include "paddle/fluid/distributed/ps/table/graph/graph_node.h"
 #include "paddle/fluid/framework/channel.h"
 #include "paddle/fluid/framework/program_desc.h"
 #include "paddle/fluid/framework/scope.h"
 #include "paddle/phi/common/place.h"
+#include "paddle/phi/core/distributed/ps/table/depends/sparse_utils.h"
 #include "paddle/phi/core/platform/device_context.h"
 #include "paddle/utils/string/string_helper.h"
 

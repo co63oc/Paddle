@@ -23,16 +23,16 @@
 #include <tuple>
 
 #include "paddle/common/flags.h"
-#include "paddle/fluid/distributed/common/utils.h"
 #include "paddle/fluid/distributed/ps/table/graph/graph_node.h"
 #include "paddle/fluid/framework/fleet/fleet_wrapper.h"
 #include "paddle/fluid/framework/fleet/heter_ps/graph_gpu_wrapper.h"
+#include "paddle/phi/core/distributed/common/utils.h"
 #if defined(PADDLE_WITH_HETERPS) && defined(PADDLE_WITH_PSCORE)
 #include "paddle/fluid/framework/fleet/ps_gpu_wrapper.h"
 #endif
 #include "paddle/fluid/framework/io/fs.h"
-#include "paddle/fluid/platform/timer.h"
 #include "paddle/phi/core/generator.h"
+#include "paddle/phi/core/platform/timer.h"
 #include "paddle/utils/string/printf.h"
 #include "paddle/utils/string/string_helper.h"
 

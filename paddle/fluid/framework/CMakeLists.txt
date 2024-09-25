@@ -83,7 +83,6 @@ add_subdirectory(io)
 add_subdirectory(new_executor)
 
 #ddim lib
-proto_library(framework_proto SRCS framework.proto)
 proto_library(pass_desc_proto SRCS pass_desc.proto DEPS framework_proto)
 
 proto_library(op_def_proto SRCS op_def.proto DEPS framework_proto)
@@ -227,7 +226,6 @@ cc_library(
   SRCS data_transform.cc
   DEPS tensor
        framework_proto
-       selected_rows_utils
        data_device_transform
        data_type_transform
        data_layout_transform
@@ -263,7 +261,7 @@ cc_library(
 cc_library(
   shape_inference
   SRCS shape_inference.cc
-  DEPS phi common attribute selected_rows_utils)
+  DEPS phi common attribute)
 
 # every source file that includes "dnnl.h" must depends on onednn
 # or, the first one should depends on onednn
@@ -290,18 +288,12 @@ if(WITH_XPU)
   cc_library(
     phi_utils
     SRCS phi_utils.cc
-    DEPS lod_tensor
-         selected_rows_utils
-         phi
-         common
-         var_type_traits
-         op_info
-         xpu_op_list)
+    DEPS lod_tensor phi common var_type_traits op_info xpu_op_list)
 else()
   cc_library(
     phi_utils
     SRCS phi_utils.cc
-    DEPS lod_tensor selected_rows_utils phi common var_type_traits op_info)
+    DEPS lod_tensor phi common var_type_traits op_info)
 endif()
 
 if(WITH_XPU)
@@ -594,7 +586,6 @@ if(WITH_DISTRIBUTE)
            graph_to_program_pass
            variable_helper
            data_feed_proto
-           timer
            monitor
            heter_service_proto
            ${BRPC_DEP})
@@ -620,7 +611,7 @@ if(WITH_DISTRIBUTE)
     #         device_context scope framework_proto data_feed_proto heter_service_proto trainer_desc_proto glog
     #         index_sampler index_wrapper sampler index_dataset_proto
     #         lod_rank_table framework_io fleet_wrapper heter_wrapper box_wrapper metrics lodtensor_printer feed_fetch_method feed_hook
-    #         graph_to_program_pass variable_helper timer monitor
+    #         graph_to_program_pass variable_helper monitor
     #         heter_service_proto fleet heter_server brpc fleet_executor
     #         graph_gpu_wrapper)
 
@@ -671,7 +662,6 @@ if(WITH_DISTRIBUTE)
            feed_hook
            graph_to_program_pass
            variable_helper
-           timer
            monitor
            heter_service_proto
            fleet
@@ -745,7 +735,6 @@ if(WITH_DISTRIBUTE)
            feed_hook
            graph_to_program_pass
            variable_helper
-           timer
            monitor)
   endif()
 elseif(WITH_PSLIB)
@@ -804,7 +793,6 @@ elseif(WITH_PSLIB)
          feed_hook
          graph_to_program_pass
          variable_helper
-         timer
          monitor
          ${BRPC_DEP})
 else()
@@ -851,7 +839,6 @@ else()
          feed_hook
          graph_to_program_pass
          variable_helper
-         timer
          monitor)
 endif()
 
@@ -897,7 +884,6 @@ cc_library(
   infershape_utils
   SRCS infershape_utils.cc
   DEPS lod_tensor
-       selected_rows_utils
        attribute
        var_type_traits
        phi

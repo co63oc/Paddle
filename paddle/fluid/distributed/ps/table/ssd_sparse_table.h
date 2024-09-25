@@ -15,8 +15,8 @@
 #pragma once
 
 #include "paddle/common/flags.h"
-#include "paddle/fluid/distributed/ps/table/depends/rocksdb_warpper.h"
 #include "paddle/fluid/distributed/ps/table/memory_sparse_table.h"
+#include "paddle/phi/core/distributed/ps/table/depends/rocksdb_warpper.h"
 
 #if defined(PADDLE_WITH_HETERPS) && defined(PADDLE_WITH_PSCORE)
 #include "paddle/fluid/framework/fleet/ps_gpu_wrapper.h"

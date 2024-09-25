@@ -25,8 +25,8 @@ limitations under the License. */
 #include "cub/cub.cuh"
 #if defined(PADDLE_WITH_PSCORE) && defined(PADDLE_WITH_HETERPS)
 #include "paddle/fluid/framework/fleet/heter_ps/gpu_graph_node.h"
-#include "paddle/fluid/framework/fleet/heter_ps/gpu_graph_utils.h"
 #include "paddle/fluid/framework/fleet/heter_ps/graph_gpu_wrapper.h"
+#include "paddle/phi/core/framework/fleet/heter_ps/gpu_graph_utils.h"
 #endif
 #include "paddle/common/flags.h"
 #include "paddle/fluid/framework/fleet/heter_ps/hashtable.h"

@@ -34,13 +34,13 @@ limitations under the License. */
 #include <unordered_set>
 
 #include "paddle/fluid/framework/data_set.h"
-#include "paddle/fluid/framework/fleet/heter_ps/gpu_graph_utils.h"
+#include "paddle/phi/core/framework/fleet/heter_ps/gpu_graph_utils.h"
 #if defined(PADDLE_WITH_PSCORE) && defined(PADDLE_WITH_HETERPS)
 #include "paddle/fluid/framework/fleet/heter_ps/graph_gpu_wrapper.h"
 #endif
-#include "paddle/fluid/platform/timer.h"
+#include "paddle/phi/core/platform/timer.h"
 #if defined(PADDLE_WITH_PSCORE)
-#include "paddle/fluid/distributed/ps/table/depends/feature_value.h"
+#include "paddle/phi/core/distributed/ps/table/depends/feature_value.h"
 #endif
 #include "paddle/common/flags.h"
 

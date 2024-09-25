@@ -43,13 +43,13 @@
 #include "paddle/fluid/distributed/ps/table/common_table.h"
 #include "paddle/fluid/distributed/ps/table/graph/class_macro.h"
 #include "paddle/fluid/distributed/ps/table/graph/graph_node.h"
-#include "paddle/fluid/distributed/ps/thirdparty/round_robin.h"
+#include "paddle/phi/core/distributed/ps/thirdparty/round_robin.h"
 #include "paddle/phi/core/utils/rw_lock.h"
 #include "paddle/utils/string/string_helper.h"
 
 #ifdef PADDLE_WITH_HETERPS
-#include "paddle/fluid/distributed/ps/table/depends/rocksdb_warpper.h"
 #include "paddle/fluid/framework/fleet/heter_ps/gpu_graph_node.h"
+#include "paddle/phi/core/distributed/ps/table/depends/rocksdb_warpper.h"
 #endif
 namespace paddle {
 namespace distributed {

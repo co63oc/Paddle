@@ -19,7 +19,7 @@ limitations under the License. */
 #include "paddle/common/flags.h"
 #include "paddle/fluid/distributed/ps/service/brpc_ps_client.h"
 #include "paddle/fluid/distributed/ps/wrapper/fleet.h"
-#include "paddle/fluid/platform/enforce.h"
+#include "paddle/phi/core/platform/enforce.h"
 #include "paddle/phi/core/platform/profiler.h"
 #include "paddle/utils/string/string_helper.h"
 

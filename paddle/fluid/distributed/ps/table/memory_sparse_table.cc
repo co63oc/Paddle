@@ -24,7 +24,7 @@
 #include "paddle/fluid/framework/io/fs.h"
 
 // #include "boost/lexical_cast.hpp"
-#include "paddle/fluid/platform/enforce.h"
+#include "paddle/phi/core/platform/enforce.h"
 
 PD_DEFINE_bool(pserver_print_missed_key_num_every_push,
                false,

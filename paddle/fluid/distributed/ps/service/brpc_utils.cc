@@ -18,7 +18,7 @@ limitations under the License. */
 #include <netdb.h>
 
 #include "paddle/fluid/framework/convert_utils.h"
-#include "paddle/fluid/platform/enforce.h"
+#include "paddle/phi/core/platform/enforce.h"
 
 namespace paddle::framework {
 class Variable;

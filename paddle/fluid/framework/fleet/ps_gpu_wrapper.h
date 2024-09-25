@@ -33,9 +33,9 @@ limitations under the License. */
 #include "paddle/fluid/framework/data_set.h"
 #include "paddle/fluid/framework/fleet/gloo_wrapper.h"
 #endif
-#include "paddle/fluid/distributed/ps/thirdparty/round_robin.h"
 #include "paddle/fluid/framework/channel.h"
 #include "paddle/fluid/framework/fleet/heter_context.h"
+#include "paddle/phi/core/distributed/ps/thirdparty/round_robin.h"
 #if defined(PADDLE_WITH_PSCORE) && defined(PADDLE_WITH_HETERPS)
 #include "paddle/fluid/framework/fleet/heter_ps/graph_gpu_wrapper.h"
 #endif

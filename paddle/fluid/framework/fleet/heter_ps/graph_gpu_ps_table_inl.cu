@@ -23,8 +23,8 @@
 #include "cudf/block_radix_topk.cuh"
 #include "cudf/random.cuh"
 #include "paddle/common/flags.h"
-#include "paddle/fluid/framework/fleet/heter_ps/gpu_graph_utils.h"
 #include "paddle/fluid/framework/fleet/heter_ps/graph_gpu_ps_table.h"
+#include "paddle/phi/core/framework/fleet/heter_ps/gpu_graph_utils.h"
 
 #define ALIGN_INT64(LEN) (uint64_t((LEN) + 7) & uint64_t(~7))
 #define HBMPS_MAX_BUFF 1024 * 1024

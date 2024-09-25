@@ -25,14 +25,14 @@ limitations under the License. */
 #endif
 
 #if defined(PADDLE_WITH_PSCORE)
-#include "paddle/fluid/distributed/ps/table/depends/feature_value.h"
+#include "paddle/phi/core/distributed/ps/table/depends/feature_value.h"
 #endif
 #include "paddle/fluid/framework/fleet/heter_ps/feature_value.h"
 #include "paddle/phi/core/utils/rw_lock.h"
 
 #if defined(PADDLE_WITH_CUDA)
-#include "paddle/fluid/framework/fleet/heter_ps/cudf/concurrent_unordered_map.cuh.h"
 #include "paddle/fluid/framework/fleet/heter_ps/mem_pool.h"
+#include "paddle/phi/core/framework/fleet/heter_ps/cudf/concurrent_unordered_map.cuh.h"
 #include "paddle/phi/core/platform/device/gpu/gpu_types.h"
 #include "thrust/pair.h"
 #elif defined(__xpu__)

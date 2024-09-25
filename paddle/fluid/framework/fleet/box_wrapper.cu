@@ -19,7 +19,6 @@
 #include <numeric>
 
 #include "paddle/fluid/framework/fleet/box_wrapper.h"
-#include "paddle/fluid/framework/lod_tensor.h"
 #include "paddle/phi/core/platform/device/gpu/gpu_info.h"
 
 namespace paddle {

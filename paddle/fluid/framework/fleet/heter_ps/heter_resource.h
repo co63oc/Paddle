@@ -28,7 +28,7 @@ limitations under the License. */
 #include "paddle/phi/core/platform/device/xpu/xpu_info.h"
 #endif
 
-#include "paddle/fluid/platform/enforce.h"
+#include "paddle/phi/core/platform/enforce.h"
 
 #ifdef PADDLE_WITH_HETERPS
 

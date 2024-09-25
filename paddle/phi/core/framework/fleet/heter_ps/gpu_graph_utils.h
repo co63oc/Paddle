@@ -23,7 +23,7 @@
 #include <vector>
 #include "paddle/common/enforce.h"
 #include "paddle/common/flags.h"
-#include "paddle/fluid/platform/enforce.h"
+#include "paddle/phi/core/platform/enforce.h"
 
 COMMON_DECLARE_bool(gpugraph_debug_gpu_memory);
 

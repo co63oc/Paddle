@@ -16,7 +16,7 @@
 
 #include "glog/logging.h"
 #include "paddle/common/flags.h"
-#include "paddle/fluid/platform/enforce.h"
+#include "paddle/phi/core/platform/enforce.h"
 #include "paddle/utils/string/string_helper.h"
 
 namespace paddle::distributed {

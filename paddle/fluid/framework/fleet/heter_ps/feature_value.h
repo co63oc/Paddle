@@ -27,7 +27,7 @@ limitations under the License. */
 #ifdef PADDLE_WITH_PSCORE
 #include "paddle/fluid/distributed/ps/table/accessor.h"
 #include "paddle/fluid/distributed/ps/table/ctr_dymf_accessor.h"
-#include "paddle/fluid/distributed/ps/table/depends/feature_value.h"
+#include "paddle/phi/core/distributed/ps/table/depends/feature_value.h"
 #endif
 
 #ifdef PADDLE_WITH_PSLIB

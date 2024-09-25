@@ -19,8 +19,8 @@ limitations under the License. */
 #include <utility>
 #include <vector>
 #include "paddle/fluid/framework/fleet/heter_ps/feature_value.h"
-#include "paddle/fluid/framework/fleet/heter_ps/gpu_graph_utils.h"
 #include "paddle/fluid/framework/fleet/heter_ps/heter_comm_kernel.h"
+#include "paddle/phi/core/framework/fleet/heter_ps/gpu_graph_utils.h"
 #include "paddle/phi/core/platform/device_context.h"
 #ifdef PADDLE_WITH_XPU_KP
 #include "paddle/phi/core/platform/device/xpu/xpu_info.h"

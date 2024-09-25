@@ -28,7 +28,7 @@
 #include "Eigen/Dense"
 #include "paddle/fluid/distributed/ps/table/accessor.h"
 #include "paddle/fluid/distributed/ps/table/common_table.h"
-#include "paddle/fluid/distributed/ps/table/depends/feature_value.h"
+#include "paddle/phi/core/distributed/ps/table/depends/feature_value.h"
 #include "paddle/utils/string/string_helper.h"
 
 #define PSERVER_SAVE_SUFFIX ".shard"

@@ -14,7 +14,7 @@
 
 #pragma once
 #include <glog/logging.h>
-#include "paddle/fluid/platform/enforce.h"
+#include "paddle/phi/core/platform/enforce.h"
 
 namespace paddle {
 namespace distributed {

@@ -23,7 +23,7 @@
 #include <vector>
 
 #include "paddle/common/flags.h"
-#include "paddle/fluid/distributed/common/utils.h"
+#include "paddle/phi/core/distributed/common/utils.h"
 
 namespace paddle {
 namespace distributed {

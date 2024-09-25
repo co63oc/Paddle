@@ -28,12 +28,12 @@ limitations under the License. */
 #endif
 
 #ifdef PADDLE_WITH_PSCORE
-#include "paddle/fluid/distributed/ps/table/depends/feature_value.h"
+#include "paddle/phi/core/distributed/ps/table/depends/feature_value.h"
 #endif
 
-#include "paddle/fluid/distributed/ps/thirdparty/round_robin.h"
 #include "paddle/fluid/framework/fleet/heter_ps/feature_value.h"
 #include "paddle/fluid/framework/scope.h"
+#include "paddle/phi/core/distributed/ps/thirdparty/round_robin.h"
 
 #ifdef PADDLE_WITH_PSLIB
 #define CONV2FEATURE_PTR(ptr) \

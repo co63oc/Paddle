@@ -19,7 +19,7 @@
 #include <mct/hash-map.hpp>
 
 #include "paddle/common/flags.h"
-#include "paddle/fluid/distributed/common/chunk_allocator.h"
+#include "paddle/phi/core/distributed/common/chunk_allocator.h"
 
 namespace paddle {
 namespace distributed {
