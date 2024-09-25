@@ -3,8 +3,6 @@ cc_library(
   SRCS denormal.cc
   DEPS)
 
-cc_library(monitor SRCS monitor.cc)
-
 if(WITH_ONEDNN)
   set(ONEDNN_CTX_DEPS onednn)
 else()

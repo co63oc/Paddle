@@ -75,7 +75,6 @@ limitations under the License. */
 #include "paddle/fluid/platform/device/device_wrapper.h"
 #include "paddle/fluid/platform/enforce.h"
 #include "paddle/fluid/platform/init.h"
-#include "paddle/fluid/platform/monitor.h"
 #include "paddle/fluid/platform/profiler/event_python.h"
 #include "paddle/fluid/platform/profiler/event_tracing.h"
 #include "paddle/fluid/platform/profiler/profiler.h"
@@ -111,6 +110,7 @@ limitations under the License. */
 #include "paddle/phi/core/lod_utils.h"
 #include "paddle/phi/core/memory/allocation/mmap_allocator.h"
 #include "paddle/phi/core/platform/device_context.h"
+#include "paddle/phi/core/platform/monitor.h"
 #include "paddle/phi/core/platform/profiler.h"
 #include "paddle/utils/none.h"
 
