@@ -28,8 +28,8 @@ limitations under the License. */
 #include "paddle/fluid/framework/heter_service.h"
 #include "paddle/fluid/framework/heter_util.h"
 #include "paddle/fluid/framework/scope.h"
-#include "paddle/fluid/framework/tensor.h"
 #include "paddle/fluid/framework/variable_helper.h"
+#include "paddle/phi/core/framework/tensor.h"
 
 namespace paddle {
 namespace framework {

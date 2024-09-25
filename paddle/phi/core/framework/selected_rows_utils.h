@@ -21,9 +21,9 @@
 #include <utility>
 #include <vector>
 
+#include "paddle/phi/core/framework/tensor_util.h"
 #include "paddle/phi/core/platform/device_context.h"
 #include "paddle/phi/core/selected_rows.h"
-#include "paddle/phi/core/tensor_utils.h"
 
 namespace paddle {
 namespace framework {

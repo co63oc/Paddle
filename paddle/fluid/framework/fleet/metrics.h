@@ -29,8 +29,8 @@ limitations under the License. */
 
 #include "paddle/fluid/framework/program_desc.h"
 #include "paddle/fluid/framework/scope.h"
-#include "paddle/fluid/framework/tensor.h"
 #include "paddle/fluid/framework/variable_helper.h"
+#include "paddle/phi/core/framework/tensor.h"
 #include "paddle/phi/core/platform/timer.h"
 #include "paddle/utils/string/string_helper.h"
 

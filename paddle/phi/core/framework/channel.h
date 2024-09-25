@@ -30,8 +30,8 @@
 #include <utility>
 #include <vector>
 
-#include "paddle/fluid/platform/enforce.h"
 #include "paddle/phi/core/expect.h"
+#include "paddle/phi/core/platform/enforce.h"
 
 namespace paddle {
 namespace framework {

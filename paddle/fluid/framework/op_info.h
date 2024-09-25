@@ -20,11 +20,11 @@ limitations under the License. */
 #include <vector>
 
 #include "paddle/common/macros.h"
-#include "paddle/fluid/framework/attribute.h"
 #include "paddle/fluid/framework/attribute_checker.h"
 #include "paddle/fluid/framework/no_need_buffer_vars_inference.h"
-#include "paddle/fluid/framework/type_defs.h"
-#include "paddle/fluid/platform/enforce.h"
+#include "paddle/phi/core/framework/attribute.h"
+#include "paddle/phi/core/framework/type_defs.h"
+#include "paddle/phi/core/platform/enforce.h"
 #include "paddle/utils/flat_hash_map.h"
 #include "paddle/utils/test_macros.h"
 namespace paddle {

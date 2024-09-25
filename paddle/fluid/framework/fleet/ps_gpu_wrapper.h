@@ -33,9 +33,9 @@ limitations under the License. */
 #include "paddle/fluid/framework/data_set.h"
 #include "paddle/fluid/framework/fleet/gloo_wrapper.h"
 #endif
-#include "paddle/fluid/framework/channel.h"
 #include "paddle/fluid/framework/fleet/heter_context.h"
 #include "paddle/phi/core/distributed/ps/thirdparty/round_robin.h"
+#include "paddle/phi/core/framework/channel.h"
 #if defined(PADDLE_WITH_PSCORE) && defined(PADDLE_WITH_HETERPS)
 #include "paddle/fluid/framework/fleet/heter_ps/graph_gpu_wrapper.h"
 #endif
@@ -52,9 +52,9 @@ limitations under the License. */
 #endif
 #include "paddle/common/macros.h"  // for DISABLE_COPY_AND_ASSIGN
 #include "paddle/fluid/framework/scope.h"
-#include "paddle/fluid/framework/tensor.h"
 #include "paddle/fluid/framework/variable_helper.h"
 #include "paddle/phi/common/place.h"
+#include "paddle/phi/core/framework/tensor.h"
 #ifdef PADDLE_WITH_PSCORE
 #include "paddle/fluid/distributed/ps/table/accessor.h"
 #include "paddle/fluid/distributed/ps/table/ctr_dymf_accessor.h"
@@ -67,7 +67,7 @@ limitations under the License. */
 #include "downpour_accessor.h"  // NOLINT
 #endif
 #include "paddle/common/flags.h"
-#include "paddle/fluid/framework/fleet/heter_ps/log_patch.h"
+#include "paddle/phi/core/framework/fleet/heter_ps/log_patch.h"
 
 COMMON_DECLARE_int32(gpugraph_storage_mode);
 

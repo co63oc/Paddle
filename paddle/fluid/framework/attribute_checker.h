@@ -14,8 +14,8 @@
 
 #pragma once
 
-#include "paddle/fluid/framework/attribute.h"
 #include "paddle/fluid/framework/var_desc.h"
+#include "paddle/phi/core/framework/attribute.h"
 
 namespace paddle {
 namespace framework {

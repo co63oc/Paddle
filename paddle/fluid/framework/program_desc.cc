@@ -23,7 +23,7 @@ extern "C" {
 #include "paddle/fluid/framework/op_version_proto.h"
 #include "paddle/fluid/framework/op_version_registry.h"
 #include "paddle/fluid/framework/program_converter.h"
-#include "paddle/fluid/framework/version.h"
+#include "paddle/phi/core/framework/version.h"
 
 namespace paddle::framework {
 

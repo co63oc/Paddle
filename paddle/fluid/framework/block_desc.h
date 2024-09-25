@@ -23,8 +23,8 @@ limitations under the License. */
 
 #include "paddle/common/macros.h"
 #include "paddle/fluid/framework/op_desc.h"
-#include "paddle/fluid/framework/proto_desc.h"
 #include "paddle/fluid/framework/var_desc.h"
+#include "paddle/phi/core/framework/proto_desc.h"
 #include "paddle/utils/test_macros.h"
 
 namespace paddle {
