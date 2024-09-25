@@ -18,7 +18,7 @@
 #include <deque>
 #include <utility>
 
-#include "paddle/fluid/platform/enforce.h"
+#include "paddle/phi/core/platform/enforce.h"
 
 namespace paddle {
 namespace operators {

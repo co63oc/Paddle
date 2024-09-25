@@ -25,7 +25,7 @@ limitations under the License. */
 #include "paddle/fluid/framework/executor.h"
 #include "paddle/fluid/framework/lod_tensor.h"
 #include "paddle/fluid/framework/op_registry.h"
-#include "paddle/fluid/framework/threadpool.h"
+#include "paddle/phi/core/framework/threadpool.h"
 // #include "paddle/fluid/operators/distributed/distributed.h"
 // #include "paddle/fluid/operators/distributed/request_handler_impl.h"
 #if defined(PADDLE_WITH_NCCL) || defined(PADDLE_WITH_RCCL)

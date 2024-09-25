@@ -11,7 +11,19 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License. */
-
 #pragma once
 
-#include "paddle/fluid/framework/lod_tensor_array.h"
+#include <vector>
+
+#include "paddle/phi/core/framework/variable.h"
+
+namespace paddle {
+namespace framework {
+
+class Variable;
+
+TEST_API void InitializeVariable(Variable* var, proto::VarType::Type var_type);
+void CopyVariable(const Variable& src_var, Variable* dst_var);
+
+}  // end namespace framework
+}  // end namespace paddle

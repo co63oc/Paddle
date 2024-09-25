@@ -20,7 +20,7 @@ limitations under the License. */
 
 #include "paddle/fluid/framework/block_desc.h"
 #include "paddle/fluid/framework/op_desc.h"
-#include "paddle/fluid/framework/type_defs.h"
+#include "paddle/phi/core/framework/type_defs.h"
 
 namespace paddle {
 namespace framework {

@@ -15,9 +15,9 @@ limitations under the License. */
 #include <string>
 
 #include "paddle/fluid/framework/device_worker_factory.h"
-#include "paddle/fluid/framework/threadpool.h"
 #include "paddle/fluid/framework/trainer.h"
 #include "paddle/fluid/platform/lodtensor_printer.h"
+#include "paddle/phi/core/framework/threadpool.h"
 #if defined PADDLE_WITH_PSCORE
 #include "paddle/fluid/distributed/ps/service/communicator/communicator.h"
 #endif

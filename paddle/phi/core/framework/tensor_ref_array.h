@@ -1,4 +1,4 @@
-// Copyright (c) 2024 PaddlePaddle Authors. All Rights Reserved.
+// Copyright (c) 2023 PaddlePaddle Authors. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,4 +14,17 @@
 
 #pragma once
 
-#include "paddle/phi/core/framework/tensor_ref_array.h"
+#include "paddle/phi/core/framework/phi_tensor_base_vector.h"
+
+namespace paddle {
+namespace framework {
+
+template <>
+struct PhiVectorType<const framework::Variable*> {
+  const char* type_name = "VariableRefArray";
+};
+
+using VariableRefArray = PhiVector<const framework::Variable*>;
+
+}  // namespace framework
+}  // namespace paddle

@@ -12,18 +12,4 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License. */
 #pragma once
-
-#include <vector>
-
-#include "paddle/fluid/framework/variable.h"
-
-namespace paddle {
-namespace framework {
-
-class Variable;
-
-TEST_API void InitializeVariable(Variable* var, proto::VarType::Type var_type);
-void CopyVariable(const Variable& src_var, Variable* dst_var);
-
-}  // end namespace framework
-}  // end namespace paddle
+#include "paddle/fluid/framework/variable_helper.h"

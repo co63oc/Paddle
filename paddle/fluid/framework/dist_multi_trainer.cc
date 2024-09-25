@@ -16,7 +16,7 @@ limitations under the License. */
 #include "paddle/fluid/distributed/ps/wrapper/fleet.h"
 #endif
 
-#include "paddle/fluid/framework/threadpool.h"
+#include "paddle/phi/core/framework/threadpool.h"
 
 #include "paddle/fluid/framework/convert_utils.h"
 #include "paddle/fluid/framework/device_worker_factory.h"

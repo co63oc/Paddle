@@ -16,7 +16,7 @@
 #include "paddle/fluid/distributed/ps/service/ps_local_client.h"
 #include "paddle/fluid/framework/archive.h"
 #include "paddle/fluid/framework/barrier.h"
-#include "paddle/fluid/framework/threadpool.h"
+#include "paddle/phi/core/framework/threadpool.h"
 
 namespace paddle {
 // namespace framework {
