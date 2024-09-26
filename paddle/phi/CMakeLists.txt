@@ -41,6 +41,7 @@ if(WIN32)
 endif()
 
 set(PHI_DEPS
+    framework_proto
     phi_profiler_proto
     auto_parallel_proto
     glog
