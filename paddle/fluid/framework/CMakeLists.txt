@@ -510,7 +510,6 @@ cc_library(
 
 set(NAIVE_EXECUTOR_DEPS
     op_registry
-    denormal
     device_context
     scope
     framework_proto
@@ -593,8 +592,6 @@ if(WITH_DISTRIBUTE)
            graph_to_program_pass
            variable_helper
            data_feed_proto
-           timer
-           monitor
            heter_service_proto
            ${BRPC_DEP})
     set(DISTRIBUTE_COMPILE_FLAGS "")
@@ -619,7 +616,7 @@ if(WITH_DISTRIBUTE)
     #         device_context scope framework_proto data_feed_proto heter_service_proto trainer_desc_proto glog
     #         index_sampler index_wrapper sampler index_dataset_proto
     #         lod_rank_table framework_io fleet_wrapper heter_wrapper box_wrapper metrics lodtensor_printer feed_fetch_method feed_hook
-    #         graph_to_program_pass variable_helper timer monitor
+    #         graph_to_program_pass variable_helper
     #         heter_service_proto fleet heter_server brpc fleet_executor
     #         graph_gpu_wrapper)
 
@@ -670,8 +667,6 @@ if(WITH_DISTRIBUTE)
            feed_hook
            graph_to_program_pass
            variable_helper
-           timer
-           monitor
            heter_service_proto
            fleet
            heter_server
@@ -743,9 +738,7 @@ if(WITH_DISTRIBUTE)
            feed_fetch_method
            feed_hook
            graph_to_program_pass
-           variable_helper
-           timer
-           monitor)
+           variable_helper)
   endif()
 elseif(WITH_PSLIB)
   set(DISTRIBUTE_COMPILE_FLAGS "")
@@ -803,8 +796,6 @@ elseif(WITH_PSLIB)
          feed_hook
          graph_to_program_pass
          variable_helper
-         timer
-         monitor
          ${BRPC_DEP})
 else()
   cc_library(
@@ -849,9 +840,7 @@ else()
          feed_fetch_method
          feed_hook
          graph_to_program_pass
-         variable_helper
-         timer
-         monitor)
+         variable_helper)
 endif()
 
 target_link_libraries(
