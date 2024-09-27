@@ -22,6 +22,9 @@ def main():
         content = file.read()
 
     new_content = content.replace('paddle.fluid', 'paddle.base')
+    new_content = new_content.replace(
+        'paddle.phi.core.framework', 'paddle.base.framework'
+    )
 
     with open(src, 'w') as file:
         file.write(new_content)
