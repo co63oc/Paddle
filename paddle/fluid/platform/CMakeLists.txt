@@ -1,8 +1,3 @@
-cc_library(
-  denormal
-  SRCS denormal.cc
-  DEPS)
-
 if(WITH_ONEDNN)
   set(ONEDNN_CTX_DEPS onednn)
 else()
@@ -10,11 +5,6 @@ else()
 endif()
 
 add_subdirectory(device)
-
-cc_library(
-  cpu_helper
-  SRCS cpu_helper.cc
-  DEPS cblas phi common)
 
 set(dgc_deps "")
 if(WITH_DGC)
@@ -69,7 +59,6 @@ cc_library(
        xxhash
        ${STREAM_CALLBACK_DEPS}
        eigen3
-       cpu_helper
        framework_proto
        ${IPU_CTX_DEPS}
        ${ONEDNN_CTX_DEPS}

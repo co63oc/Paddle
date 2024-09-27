@@ -500,7 +500,6 @@ cc_library(
 
 set(NAIVE_EXECUTOR_DEPS
     op_registry
-    denormal
     device_context
     scope
     glog
@@ -605,7 +604,6 @@ if(WITH_DISTRIBUTE)
     #         index_sampler index_wrapper sampler index_dataset_proto
     #         lod_rank_table framework_io fleet_wrapper heter_wrapper box_wrapper metrics lodtensor_printer feed_fetch_method feed_hook
     #         graph_to_program_pass variable_helper
-    #         fleet heter_server brpc fleet_executor
     #         graph_gpu_wrapper)
 
     cc_library(
