@@ -235,6 +235,7 @@
   output : Tensor[](output){ids.size()}
   infer_meta :
     func : DistributedPushSparse2InferMeta
+    param: [ids, shows, clicks, table_id, size, is_distributed, push_sparse_version, padding_idx, dtype, is_test, use_cvm_op]
   kernel :
     func: distributed_push_sparse
     data_type : dtype
