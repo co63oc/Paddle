@@ -104,6 +104,20 @@ void DistributedPushSparseInferMeta(
     bool use_cvm_op,
     std::vector<MetaTensor*> output);
 
+void DistributedPushSparse2InferMeta(const std::vector<const MetaTensor*>& ids,
+                                     const MetaTensor& shows,
+                                     const MetaTensor& clicks,
+                                     int table_id,
+                                     int size,
+                                     bool is_distributed,
+                                     const std::string& push_sparse_version,
+                                     int64_t padding_idx,
+                                     DataType dtype,
+                                     bool is_test,
+                                     bool use_cvm_op,
+                                     const std::vector<int> slots,
+                                     std::vector<MetaTensor*> output);
+
 void DpsgdInferMeta(const MetaTensor& param,
                     const MetaTensor& grad,
                     const MetaTensor& learning_rate,

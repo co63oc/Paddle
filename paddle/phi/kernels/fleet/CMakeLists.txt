@@ -15,8 +15,10 @@ if(CMAKE_CXX_COMPILER_VERSION VERSION_GREATER 7.0)
   set(DISTRIBUTE_COMPILE_FLAGS "${DISTRIBUTE_COMPILE_FLAGS} -faligned-new")
 endif()
 
-set(DISTRIBUTE_OPS cpu/distributed_lookup_table_kernel.cc
-                   gpu/distributed_lookup_table_kernel.cu)
+set(DISTRIBUTE_OPS
+    cpu/distributed_lookup_table_kernel.cc
+    gpu/distributed_lookup_table_kernel.cu
+    cpu/distributed_push_sparse_kernel.cc gpu/distributed_push_sparse_kernel.cu)
 foreach(src ${DISTRIBUTE_OPS})
   set_source_files_properties(${src} PROPERTIES COMPILE_FLAGS
                                                 ${DISTRIBUTE_COMPILE_FLAGS})

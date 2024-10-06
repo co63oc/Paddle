@@ -231,10 +231,10 @@
     data_type : dtype
 
 - op : distributed_push_sparse
-  args : (Tensor[] ids, Tensor[] shows, Tensor[] clicks, int table_id = 0, int size = 8, bool is_distributed = false, str push_sparse_version = "push_sparse", int64_t padding_idx = -1, DataType dtype=DataType::FLOAT32, bool is_test = false, bool use_cvm_op = false)
+  args : (Tensor[] ids, Tensor shows, Tensor clicks, int table_id = 0, int size = 8, bool is_distributed = false, str push_sparse_version = "push_sparse", int64_t padding_idx = -1, DataType dtype=DataType::FLOAT32, bool is_test = false, bool use_cvm_op = false, int[] slots = {})
   output : Tensor[](output){ids.size()}
   infer_meta :
-    func : DistributedPushSparseInferMeta
+    func : DistributedPushSparse2InferMeta
   kernel :
     func: distributed_push_sparse
     data_type : dtype
