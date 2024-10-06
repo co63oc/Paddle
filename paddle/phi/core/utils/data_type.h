@@ -135,6 +135,7 @@ enum ProtoDataType {
   BF16 = 22,
   COMPLEX64 = 23,
   COMPLEX128 = 24,
+  STRINGS = 26,
   PSTRING = 29,
   FP8_E4M3FN = 32,
   FP8_E5M2 = 33
@@ -174,6 +175,8 @@ inline DataType TransToPhiDataType(const int& dtype) {
       return DataType::BOOL;
     case ProtoDataType::PSTRING:
       return DataType::PSTRING;
+    case ProtoDataType::STRINGS:
+      return DataType::STRINGS;
     case ProtoDataType::RAW:
       return DataType::ALL_DTYPE;
     default:
@@ -215,6 +218,8 @@ inline int TransToProtoVarType(const DataType& dtype) {
       return ProtoDataType::BOOL;
     case DataType::PSTRING:
       return ProtoDataType::PSTRING;
+    case DataType::STRINGS:
+      return ProtoDataType::STRINGS;
     case DataType::UNDEFINED:
       return ProtoDataType::RAW;
     default:

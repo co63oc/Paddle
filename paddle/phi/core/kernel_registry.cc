@@ -18,6 +18,7 @@
 #include <typeinfo>
 
 #include "paddle/phi/core/custom_kernel.h"
+#include "paddle/phi/core/framework/string_array.h"
 #include "paddle/phi/core/kernel_utils.h"
 
 namespace phi {
@@ -90,7 +91,20 @@ void SetKernelArgsDef(const std::vector<std::type_index>& args_type,
                             arg_type);
     } else if (arg_type ==
                std::type_index(typeid(
+                   const paddle::optional<ExtendedTensor>&))) {  // NOLINT
+      args_def->AppendInput(default_key.backend(),
+                            default_tensor_layout,
+                            default_key.dtype(),
+                            arg_type);
+    } else if (arg_type ==
+               std::type_index(typeid(
                    const std::vector<const ExtendedTensor*>&))) {  // NOLINT
+      args_def->AppendInput(default_key.backend(),
+                            default_tensor_layout,
+                            default_key.dtype(),
+                            arg_type);
+    } else if (arg_type == std::type_index(typeid(
+                               const paddle::optional<Strings>&))) {  // NOLINT
       args_def->AppendInput(default_key.backend(),
                             default_tensor_layout,
                             default_key.dtype(),

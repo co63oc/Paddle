@@ -79,6 +79,9 @@ enum class TEST_API DataType {
   // This format has 1 sign bit, 5 exponent bits, and 2 mantissa bits.
   FLOAT8_E5M2,
 
+  // for faster_tokenizer
+  STRINGS,
+
   NUM_DATA_TYPES,
   // See Note [ Why we need ALL in basic kernel key member? ]
   ALL_DTYPE = UNDEFINED,
@@ -109,6 +112,8 @@ inline size_t SizeOf(DataType data_type) {
     case DataType::COMPLEX128:
       return 16;
     case DataType::PSTRING:
+      return 48;
+    case DataType::STRINGS:
       return 48;
     case DataType::UNDEFINED:
       return 0;
@@ -225,6 +230,9 @@ inline std::ostream& operator<<(std::ostream& os, DataType dtype) {
     case DataType::PSTRING:
       os << "pstring";
       break;
+    case DataType::STRINGS:
+      os << "strings";
+      break;
     default:
       PD_THROW("Invalid enum data type `", static_cast<int>(dtype), "`.");
   }
@@ -271,6 +279,8 @@ inline std::string DataTypeToString(const DataType& dtype) {
       return "complex128";
     case DataType::PSTRING:
       return "pstring";
+    case DataType::STRINGS:
+      return "strings";
     default:
       PD_THROW("Invalid enum data type `", static_cast<int>(dtype), "`.");
   }
@@ -311,6 +321,8 @@ inline DataType StringToDataType(const std::string& dtype) {
     return DataType::COMPLEX128;
   } else if (dtype == "pstring") {
     return DataType::PSTRING;
+  } else if (dtype == "strings") {
+    return DataType::STRINGS;
   } else {
     PD_THROW("Invalid enum data type `", dtype, "`.");
   }

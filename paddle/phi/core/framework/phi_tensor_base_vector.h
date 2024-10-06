@@ -1,4 +1,4 @@
-// Copyright (c) 2023 PaddlePaddle Authors. All Rights Reserved.
+// Copyright (c) 2024 PaddlePaddle Authors. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -20,11 +20,12 @@
 #include "paddle/phi/core/dense_tensor.h"
 #include "paddle/phi/core/extended_tensor.h"
 
-namespace paddle {
-namespace framework {
-
+namespace paddle::framework {
 template <typename T>
 struct PhiVectorType;
+}
+
+namespace phi {
 
 template <typename T>
 class PhiVector : public phi::ExtendedTensor,
@@ -53,7 +54,9 @@ class PhiVector : public phi::ExtendedTensor,
  public:
   /// \brief Returns the name of the class for type traits.
   /// \return The name of the class.
-  static const char* name() { return PhiVectorType<T>().type_name; }
+  static const char* name() {
+    return paddle::framework::PhiVectorType<T>().type_name;
+  }
 
   size_t size() const { return data_.size(); }
 
@@ -93,5 +96,11 @@ class PhiVector : public phi::ExtendedTensor,
   std::vector<T> data_;
 };
 
+}  // namespace phi
+
+namespace paddle {
+namespace framework {
+template <typename T>
+using PhiVector = phi::PhiVector<T>;
 }  // namespace framework
 }  // namespace paddle

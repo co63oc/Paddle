@@ -21,6 +21,7 @@
 #include "paddle/phi/core/dense_tensor.h"
 #include "paddle/phi/core/enforce.h"
 #include "paddle/phi/core/extended_tensor.h"
+#include "paddle/phi/core/framework/string_array.h"
 #include "paddle/phi/core/kernel_context.h"
 #include "paddle/phi/core/selected_rows.h"
 #include "paddle/phi/core/sparse_coo_tensor.h"
@@ -319,6 +320,7 @@ struct KernelImpl<Return (*)(DevCtx, Args...), kernel_fn> {
   PD_SPECIALIZE_KernelCallHelper_FOR_OPTIONAL_INPUT(SelectedRows);
   PD_SPECIALIZE_KernelCallHelper_FOR_MULTI_INPUT(DenseTensor);
   PD_SPECIALIZE_KernelCallHelper_FOR_INPUT(ExtendedTensor);
+  PD_SPECIALIZE_KernelCallHelper_FOR_OPTIONAL_INPUT(ExtendedTensor);
   PD_SPECIALIZE_KernelCallHelper_FOR_MULTI_INPUT(ExtendedTensor);
   PD_SPECIALIZE_KernelCallHelper_FOR_MULTI_INPUT(TensorBase);
   PD_SPECIALIZE_KernelCallHelper_FOR_MULTI_INPUT(SelectedRows);
@@ -340,6 +342,8 @@ struct KernelImpl<Return (*)(DevCtx, Args...), kernel_fn> {
   PD_SPECIALIZE_KernelCallHelper_FOR_INPUT(TensorArray);
   PD_SPECIALIZE_KernelCallHelper_FOR_MULTI_INPUT(TensorArray);
 
+  PD_SPECIALIZE_KernelCallHelper_FOR_INPUT(phi::Strings);
+  PD_SPECIALIZE_KernelCallHelper_FOR_OPTIONAL_INPUT(phi::Strings);
   /* Attribute Helpers */
 
   PD_SPECIALIZE_KernelCallHelper_FOR_ATTRIBUTE(bool);

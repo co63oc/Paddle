@@ -14,7 +14,7 @@
 
 #pragma once
 
-#include "paddle/fluid/framework/phi_tensor_base_vector.h"
+#include "paddle/phi/core/framework/phi_tensor_base_vector.h"
 
 namespace paddle {
 namespace framework {
