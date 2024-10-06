@@ -37,7 +37,7 @@ void DistributedPushSparseKernel(const Context &dev_ctx,
                                  int dtype,
                                  bool is_test,
                                  bool use_cvm_op,
-                                 const std::vector<int> slots,
+                                 const std::vector<int> &slots,
                                  std::vector<DenseTensor *> outputs) {
   auto emb_dim = size;
 
@@ -47,7 +47,7 @@ void DistributedPushSparseKernel(const Context &dev_ctx,
 
   auto fleet = paddle::distributed::FleetWrapper::GetInstance();
 
-  if (context.GetPlace().GetType() == phi::AllocationType::CPU) {
+  if (dev_ctx.GetPlace().GetType() == phi::AllocationType::CPU) {
     fleet->PushSparseFromTensorAsync(static_cast<uint64_t>(table_id),
                                      emb_dim,
                                      static_cast<uint64_t>(padding_idx),
