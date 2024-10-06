@@ -60,7 +60,6 @@ _PADDLE_DTYPE_2_NUMPY_DTYPE = {
     core.VarDesc.VarType.UINT8: 'uint8',
     core.VarDesc.VarType.COMPLEX64: 'complex64',
     core.VarDesc.VarType.COMPLEX128: 'complex128',
-    core.VarDesc.VarType.STRINGS: 'strings',
 }
 
 _NUMPY_DTYPE_2_PADDLE_DTYPE = {
@@ -76,7 +75,6 @@ _NUMPY_DTYPE_2_PADDLE_DTYPE = {
     'uint8': core.VarDesc.VarType.UINT8,
     'complex64': core.VarDesc.VarType.COMPLEX64,
     'complex128': core.VarDesc.VarType.COMPLEX128,
-    'strings': core.VarDesc.VarType.STRINGS,
 }
 
 
