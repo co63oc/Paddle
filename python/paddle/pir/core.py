@@ -77,7 +77,6 @@ np_type_to_paddle_type = {
     np.complex128: DataType.COMPLEX128,
     "float8_e4m3fn": DataType.FLOAT8_E4M3FN,
     "float8_e5m2": DataType.FLOAT8_E5M2,
-    "strings": DataType.STRINGS,
 }
 
 _PADDLE_PIR_DTYPE_2_NUMPY_DTYPE = {
@@ -119,8 +118,6 @@ def convert_np_dtype_to_dtype_(np_dtype):
         dtype = 'float8_e4m3fn'
     elif isinstance(np_dtype, str) and np_dtype == "float8_e5m2":
         dtype = 'float8_e5m2'
-    elif isinstance(np_dtype, str) and np_dtype == "strings":
-        dtype = 'strings'
     else:
         dtype = np.dtype(np_dtype)
 
