@@ -19,9 +19,9 @@
 #include <vector>
 
 #include "paddle/common/ddim.h"
-#include "paddle/fluid/framework/lod_tensor.h"
-#include "paddle/fluid/operators/reader/blocking_queue.h"
 #include "paddle/phi/common/place.h"
+#include "paddle/phi/core/framework/lod_tensor.h"
+#include "paddle/phi/core/operators/reader/blocking_queue.h"
 
 namespace paddle {
 namespace operators {
