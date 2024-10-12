@@ -23,6 +23,7 @@
 #include <vector>
 
 #include "paddle/phi/api/lib/data_transform.h"
+#include "paddle/phi/backends/context_pool.h"
 #include "paddle/phi/core/framework/convert_utils.h"
 #include "paddle/phi/core/tensor_utils.h"
 
@@ -157,7 +158,9 @@ struct DeserializedDataFunctor {
 
   template <typename T>
   void apply() {
-    *buf_ = tensor_->mutable_data<T>(place_);
+    auto& pool = phi::DeviceContextPool::Instance();
+    auto* dev_ctx = pool.Get(place_);
+    *buf_ = dev_ctx->Alloc<T>(tensor_);
   }
 
   void** buf_;
