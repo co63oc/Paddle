@@ -15,9 +15,9 @@ limitations under the License. */
 #include <string>
 
 #include "paddle/fluid/framework/data_type.h"
-#include "paddle/fluid/framework/lod_tensor.h"
 #include "paddle/fluid/framework/op_registry.h"
-#include "paddle/fluid/framework/selected_rows_utils.h"
+#include "paddle/phi/core/framework/lod_tensor.h"
+#include "paddle/phi/core/framework/selected_rows_utils.h"
 #include "paddle/phi/kernels/cast_kernel.h"
 
 namespace paddle {
@@ -48,9 +48,9 @@ void LoadKernel(const Context& dev_ctx,
                       0,
                       common::errors::InvalidArgument(
                           "seek with tensor must great than or equal to 0"));
-    framework::DeserializeFromStream(fin, out, dev_ctx, seek, shape);
+    phi::DeserializeFromStream(fin, out, dev_ctx, seek, shape);
   } else {
-    framework::DeserializeFromStream(fin, out, dev_ctx);
+    phi::DeserializeFromStream(fin, out, dev_ctx);
   }
 
   auto in_dtype = out->dtype();
@@ -80,7 +80,7 @@ void LoadSelectedRowsKernel(const Context& dev_ctx,
                           common::errors::InvalidArgument(
                               "The variable to be loaded cannot be found."));
 
-  framework::DeserializeFromStream(fin, out, dev_ctx);
+  phi::DeserializeFromStream(fin, out, dev_ctx);
 }
 
 class LoadOp : public framework::OperatorWithKernel {
