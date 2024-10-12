@@ -4420,6 +4420,10 @@
   outputs :
     out : Out
 
+- op: load
+  outputs:
+    out : Out
+
 - op: lod_array_length
   inputs :
     {x: X}

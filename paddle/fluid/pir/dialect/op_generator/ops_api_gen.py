@@ -200,6 +200,7 @@ NO_NEED_GEN_STATIC_ONLY_APIS = [
     'fusion_lstm',
     'fusion_seqpool_cvm_concat',
     'nce',
+    'load',
     'legacy_reshape',
     'legacy_reshape_',
     'legacy_reshape_grad',

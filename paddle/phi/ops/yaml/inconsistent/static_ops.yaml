@@ -521,6 +521,17 @@
   interfaces : paddle::dialect::InferSymbolicShapeInterface
   traits : paddle::dialect::ForwardOnlyTrait
 
+- op : load
+  args: (str file_path, int64_t seek = -1, int64_t[] shape = {}, bool load_as_fp16 = false)
+  output: Tensor (out)
+  infer_meta:
+    func: LoadInferMeta
+    param: []
+  kernel:
+    func: load
+    param: [file_path, seek, shape, load_as_fp16]
+    data_type: DataType::FLOAT32
+
 - op : load_combine
   args : (str file_path, bool load_as_fp16, bool model_from_memory)
   output : Tensor[](Out)
