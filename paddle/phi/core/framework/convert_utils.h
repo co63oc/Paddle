@@ -1,4 +1,4 @@
-// Copyright (c) 2023 PaddlePaddle Authors. All Rights Reserved.
+// Copyright (c) 2024 PaddlePaddle Authors. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,19 +14,14 @@
 
 #pragma once
 
-#include "paddle/phi/core/vocab/phi_tensor_base_vector.h"
+#include "paddle/phi/core/framework/var_type_helper.h"
+#include "paddle/phi/core/utils/data_type.h"
 
 namespace phi {
-template <>
-struct PhiVectorType<const paddle::framework::Variable*> {
-  const char* type_name = "VariableRefArray";
-};
+
+inline proto::VarType::Type TransToProtoVarTypeReturnType(
+    const DataType& dtype) {
+  return static_cast<proto::VarType::Type>(phi::TransToProtoVarType(dtype));
+}
+
 }  // namespace phi
-
-namespace paddle {
-namespace framework {
-
-using VariableRefArray = PhiVector<const framework::Variable*>;
-
-}  // namespace framework
-}  // namespace paddle

@@ -1,16 +1,16 @@
-/* Copyright (c) 2018 PaddlePaddle Authors. All Rights Reserved.
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License. */
+// Copyright (c) 2024 PaddlePaddle Authors. All Rights Reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
 
 #pragma once
 
@@ -22,19 +22,17 @@ limitations under the License. */
 #include <string>
 #include <unordered_map>
 
-#include "paddle/fluid/framework/convert_utils.h"
-#include "paddle/fluid/framework/data_type.h"
-#include "paddle/fluid/framework/data_type_transform.h"
-#include "paddle/fluid/framework/lod_tensor.h"
-#include "paddle/fluid/framework/op_registry.h"
-#include "paddle/fluid/framework/raw_tensor.h"
-#include "paddle/fluid/framework/string_array.h"
 #include "paddle/phi/common/port.h"
 #include "paddle/phi/core/dense_tensor.h"
+#include "paddle/phi/core/framework/convert_utils.h"
+#include "paddle/phi/core/framework/data_type_transform.h"
+#include "paddle/phi/core/framework/lod_tensor_serialize.h"
+#include "paddle/phi/core/framework/raw_tensor.h"
+#include "paddle/phi/core/framework/var_type_helper.h"
 #include "paddle/phi/core/platform/device_context.h"
+#include "paddle/phi/core/vocab/string_array.h"
 
-namespace paddle {
-namespace operators {
+namespace phi {
 
 inline void SaveToMemory(const std::string& file_path,
                          const std::ostringstream& ss,
@@ -68,7 +66,7 @@ void SaveCombineTensorKernel(const Context& dev_ctx,
                              phi::ExtendedTensor* out) {
   std::string* y = nullptr;
   if (out != nullptr) {
-    auto raw_out = static_cast<paddle::framework::RawTensor*>(out);
+    auto raw_out = static_cast<RawTensor*>(out);
     y = raw_out->GetMutable<std::string>();
   }
 
@@ -107,12 +105,12 @@ void SaveCombineTensorKernel(const Context& dev_ctx,
       auto out_kernel_type =
           phi::KernelKey(place, phi::DataLayout::ALL_LAYOUT, out_dtype);
       phi::DenseTensor out;
-      framework::TransDataType(in_kernel_type, out_kernel_type, tensor, &out);
+      TransDataType(in_kernel_type, out_kernel_type, tensor, &out);
       // copy LoD info to the new tensor
       out.set_lod(tensor.lod());
-      framework::SerializeToStream(ss, out, dev_ctx);
+      SerializeToStream(ss, out, dev_ctx);
     } else {
-      framework::SerializeToStream(ss, tensor, dev_ctx);
+      SerializeToStream(ss, tensor, dev_ctx);
     }
   }
 
@@ -130,14 +128,14 @@ void SaveCombineVocabKernel(
     phi::ExtendedTensor* out) {
   std::string* y = nullptr;
   if (out != nullptr) {
-    auto raw_out = static_cast<paddle::framework::RawTensor*>(out);
+    auto raw_out = static_cast<RawTensor*>(out);
     y = raw_out->GetMutable<std::string>();
   }
 
-  std::vector<const framework::Vocab*> x;
+  std::vector<const Vocab*> x;
   x.reserve(inputs.size());
   for (auto input : inputs) {
-    x.push_back(static_cast<const framework::Vocab*>(input));
+    x.push_back(static_cast<const Vocab*>(input));
   }
   bool is_present = FileExists(file_path);
   if (is_present && !overwrite) {
@@ -161,14 +159,13 @@ void SaveCombineVocabKernel(
     std::unordered_map<std::string, std::int32_t> data;
     for (auto it = tensor.begin(); it != tensor.end(); ++it) {
       std::string t;
-      paddle::framework::ConvertWstrToStr(it->first, &t);
+      ConvertWstrToStr(it->first, &t);
       data.emplace(t, it->second);
     }
-    paddle::framework::StringMapToStream(ss, data);
+    StringMapToStream(ss, data);
   }
 
   SaveToMemory(file_path, ss, save_to_memory, y);
 }
 
-}  // namespace operators
-}  // namespace paddle
+}  // namespace phi

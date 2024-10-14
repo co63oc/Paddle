@@ -1,4 +1,4 @@
-// Copyright (c) 2023 PaddlePaddle Authors. All Rights Reserved.
+// Copyright (c) 2024 PaddlePaddle Authors. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,21 +12,19 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#pragma once
+#include "paddle/phi/kernels/impl/save_kernel_impl.h"
 
-#include "paddle/phi/core/vocab/phi_tensor_base_vector.h"
-
-namespace phi {
-template <>
-struct PhiVectorType<const paddle::framework::Variable*> {
-  const char* type_name = "VariableRefArray";
-};
-}  // namespace phi
-
-namespace paddle {
-namespace framework {
-
-using VariableRefArray = PhiVector<const framework::Variable*>;
-
-}  // namespace framework
-}  // namespace paddle
+PD_REGISTER_KERNEL(save,
+                   XPU,
+                   ALL_LAYOUT,
+                   phi::SaveKernel,
+                   float,
+                   double,
+                   int,
+                   uint8_t,
+                   int8_t,
+                   int64_t,
+                   phi::dtype::float16,
+                   phi::dtype::bfloat16) {
+  kernel->InputAt(0).SetBackend(phi::Backend::ALL_BACKEND);
+}
