@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "paddle/fluid/platform/stream_callback_manager.h"
+#include "paddle/phi/core/platform/stream_callback_manager.h"
 
 #include "paddle/phi/core/platform/device/device_wrapper.h"
 

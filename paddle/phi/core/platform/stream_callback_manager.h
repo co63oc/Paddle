@@ -30,8 +30,8 @@
 #include <memory>
 #include <mutex>  // NOLINT
 
-#include "paddle/fluid/platform/enforce.h"
 #include "paddle/phi/backends/gpu/gpu_decls.h"
+#include "paddle/phi/core/enforce.h"
 
 namespace paddle {
 namespace platform {
