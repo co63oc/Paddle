@@ -25,6 +25,17 @@ PD_REGISTER_KERNEL(load_combine,
                    int8_t,
                    int64_t) {}
 
+PD_REGISTER_KERNEL(load_combine_tensor,
+                   CPU,
+                   ALL_LAYOUT,
+                   phi::LoadCombineTensorKernel,
+                   float,
+                   double,
+                   phi::dtype::bfloat16,
+                   int,
+                   int8_t,
+                   int64_t) {}
+
 PD_REGISTER_KERNEL(load_combine_vocab,
                    CPU,
                    ALL_LAYOUT,

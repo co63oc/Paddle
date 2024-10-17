@@ -86,6 +86,53 @@ void LoadParamsFromBuffer(const Context& dev_ctx,
                           const phi::Place& place,
                           std::istream* buffer,
                           bool load_as_fp16,
+                          const std::vector<phi::Vocab*>& out) {
+  auto out_vars = out;
+  for (size_t i = 0; i < out_vars.size(); i++) {
+    PADDLE_ENFORCE_NOT_NULL(
+        out_vars[i],
+        common::errors::InvalidArgument(
+            "The variable index %d to be loaded cannot be found.", i));
+    // Error checking
+    PADDLE_ENFORCE_EQ(
+        static_cast<bool>(*buffer),
+        true,
+        common::errors::Unavailable(
+            "An error occurred while loading model parameters. "
+            "Please check whether the model file is complete or damaged."));
+
+    auto* tensor = out_vars[i];
+    tensor->clear();
+    std::unordered_map<std::string, std::int32_t> data;
+    StringMapFromStream(*buffer, &data);
+    for (auto it = data.begin(); it != data.end(); ++it) {
+      std::string tmp;
+      NFD(it->first, &tmp);
+      if (tmp.empty()) {
+        // VLOG(0) << "The string " << it->first
+        //         << " was converted to unicode unsuccessfully! "
+        //         << "Then dropped to load it.";
+        continue;
+      }
+      std::wstring token;
+      bool status = ConvertStrToWstr(tmp, &token);
+      if (!status) continue;
+      tensor->emplace(token, it->second);
+    }
+  }
+  buffer->peek();
+  PADDLE_ENFORCE_EQ(buffer->eof(),
+                    true,
+                    common::errors::Unavailable(
+                        "Not allowed to load partial data via "
+                        "load_combine_op, please use load_op instead."));
+}
+
+template <typename T, typename Context>
+void LoadParamsFromBuffer(const Context& dev_ctx,
+                          const phi::Place& place,
+                          std::istream* buffer,
+                          bool load_as_fp16,
                           const std::vector<phi::ExtendedTensor*>& out) {
   auto out_vars = out;
   for (size_t i = 0; i < out_vars.size(); i++) {
@@ -157,11 +204,11 @@ void LoadParamsFromBuffer(const Context& dev_ctx,
 }
 
 template <typename T, typename Context>
-void LoadCombineKernel(const Context& dev_ctx,
-                       const std::string& file_path,
-                       bool load_as_fp16,
-                       bool model_from_memory,
-                       std::vector<phi::DenseTensor*> out) {
+void LoadCombineTensorKernel(const Context& dev_ctx,
+                             const std::string& file_path,
+                             bool load_as_fp16,
+                             bool model_from_memory,
+                             std::vector<phi::DenseTensor*> out) {
   auto place = dev_ctx.GetPlace();
   auto filename = file_path;
   auto out_var_names = out;
@@ -200,7 +247,46 @@ void LoadCombineVocabKernel(const Context& dev_ctx,
                             const std::string& file_path,
                             bool load_as_fp16,
                             bool model_from_memory,
-                            std::vector<phi::ExtendedTensor*> out) {
+                            std::vector<phi::Vocab*> out) {
+  auto place = dev_ctx.GetPlace();
+  auto filename = file_path;
+  auto out_var_names = out;
+
+  PADDLE_ENFORCE_GT(out_var_names.size(),
+                    0UL,
+                    common::errors::InvalidArgument(
+                        "The number of variables to be loaded is %d, expect "
+                        "it to be greater than 0.",
+                        out_var_names.size()));
+  if (!model_from_memory) {
+    std::ifstream fin(filename, std::ios::binary);
+    PADDLE_ENFORCE_EQ(
+        static_cast<bool>(fin),
+        true,
+        common::errors::Unavailable(
+            "LoadCombine operator fails to open file %s, please check "
+            "whether the model file is complete or damaged.",
+            filename));
+    LoadParamsFromBuffer<T, Context>(dev_ctx, place, &fin, load_as_fp16, out);
+  } else {
+    PADDLE_ENFORCE_NE(
+        filename.empty(),
+        true,
+        common::errors::Unavailable(
+            "LoadCombine operator fails to open file %s, please check "
+            "whether the model file is complete or damaged.",
+            filename));
+    std::stringstream fin(filename, std::ios::in | std::ios::binary);
+    LoadParamsFromBuffer<T, Context>(dev_ctx, place, &fin, load_as_fp16, out);
+  }
+}
+
+template <typename T, typename Context>
+void LoadCombineKernel(const Context& dev_ctx,
+                       const std::string& file_path,
+                       bool load_as_fp16,
+                       bool model_from_memory,
+                       std::vector<phi::ExtendedTensor*> out) {
   auto place = dev_ctx.GetPlace();
   auto filename = file_path;
   auto out_var_names = out;
