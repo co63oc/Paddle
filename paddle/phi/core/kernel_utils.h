@@ -385,6 +385,7 @@ struct KernelImpl<Return (*)(DevCtx, Args...), kernel_fn> {
 
   PD_SPECIALIZE_KernelCallHelper_FOR_OUTPUT(TensorArray);
   PD_SPECIALIZE_KernelCallHelper_FOR_OUTPUT(ExtendedTensor);
+  PD_SPECIALIZE_KernelCallHelper_FOR_MULTI_OUTPUT(ExtendedTensor);
 
   /* End case */
   template <typename T>
