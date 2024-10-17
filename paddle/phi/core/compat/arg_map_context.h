@@ -119,7 +119,7 @@ class ArgumentMappingContext {
 
   virtual bool IsDenseTensorOutput(const std::string& name) const = 0;
   virtual bool IsSelectedRowsOutput(const std::string& name) const = 0;
-  virtual bool IsVocabOutput(const std::string& name) const = 0;
+  virtual bool IsVocabOutput(const std::string& name) const = default;
 
   // use this function to mark it comes from InferShapeArgumentMappingContext
   // and will be used in infershape

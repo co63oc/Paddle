@@ -56,8 +56,6 @@ class PluginArgumentMappingContext : public ::phi::ArgumentMappingContext {
 
   bool IsDenseTensorOutput(const std::string& name) const override;
 
-  bool IsVocabOutput(const std::string& name) const override;
-
   bool IsSparseCooTensorOutput(const std::string& name) const override;
 
   bool IsSelectedRowsOutput(const std::string& name) const override;
