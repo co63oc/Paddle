@@ -111,6 +111,13 @@ bool PluginArgumentMappingContext::IsDenseTensorOutput(
   return true;
 }
 
+bool PluginArgumentMappingContext::IsVocabOutput(
+    const std::string& name) const {
+  PADDLE_THROW(
+      common::errors::Unimplemented("Not supported for output of Vocab."));
+  return false;
+}
+
 bool PluginArgumentMappingContext::IsSelectedRowsInput(
     const std::string& name) const {
   PADDLE_THROW(common::errors::Unimplemented(
