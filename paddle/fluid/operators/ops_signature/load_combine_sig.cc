@@ -23,11 +23,12 @@ KernelSignature LoadCombineOpArgumentMapping(
                            {},
                            {"file_path", "load_as_fp16", "model_from_memory"},
                            {"Out"});
-  } else if (ctx.IsVocabOutput("Out")) {
-    return KernelSignature("load_combine_vocab",
-                           {},
-                           {"file_path", "load_as_fp16", "model_from_memory"},
-                           {"Out"});
+    // } else if (ctx.IsVocabOutput("Out")) {
+    //   return KernelSignature("load_combine_vocab",
+    //                          {},
+    //                          {"file_path", "load_as_fp16",
+    //                          "model_from_memory"},
+    //                          {"Out"});
   } else {
     return KernelSignature("load_combine",
                            {},
