@@ -24,9 +24,8 @@
 #include "paddle/phi/core/framework/framework.pb.h"
 #include "paddle/phi/core/tensor_array.h"
 
-namespace proto = paddle::framework::proto;
-
 namespace phi {
+namespace proto = paddle::framework::proto;
 
 class ReaderBase {
  public:
