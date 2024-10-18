@@ -16,7 +16,7 @@
 #include <deque>
 #include "glog/logging.h"
 
-namespace phi {
+namespace paddle::framework {
 
 void ReaderBase::ReadNext(phi::TensorArray *out) {
   std::lock_guard<std::mutex> lock(mu_);
@@ -77,4 +77,4 @@ DecoratedReader::~DecoratedReader() {
   VLOG(1) << "~DecoratedReader";
   reader_->Shutdown();
 }
-}  // namespace phi
+}  // namespace paddle::framework
