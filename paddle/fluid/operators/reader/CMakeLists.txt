@@ -23,7 +23,7 @@ endfunction()
 cc_library(
   py_reader
   SRCS py_reader.cc
-  DEPS reader)
+  DEPS reader phi)
 cc_library(
   buffered_reader
   SRCS buffered_reader.cc
