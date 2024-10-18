@@ -24,8 +24,8 @@
 #include "paddle/phi/core/framework/framework.pb.h"
 #include "paddle/phi/core/tensor_array.h"
 
-namespace phi {
-namespace proto = paddle::framework::proto;
+namespace paddle {
+namespace framework {
 
 class ReaderBase {
  public:
@@ -221,11 +221,5 @@ inline std::shared_ptr<DecoratedReader> MakeDecoratedReader(ARGS&&... args) {
   reader->RegisterDecorateChain();
   return reader;
 }
-}  // namespace phi
-
-namespace paddle::framework {
-using ReaderBase = phi::ReaderBase;
-using DecoratedReader = phi::DecoratedReader;
-using FileReader = phi::FileReader;
-using ReaderHolder = phi::ReaderHolder;
-}  // namespace paddle::framework
+}  // namespace framework
+}  // namespace paddle

@@ -13,8 +13,8 @@
 // limitations under the License.
 
 #include "paddle/phi/core/framework/reader.h"
-
 #include <deque>
+#include "glog/logging.h"
 
 namespace phi {
 
