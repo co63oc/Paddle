@@ -25,13 +25,7 @@ cc_library(
 cc_library(
   device_context
   SRCS device_context.cc
-  DEPS simple_threadpool
-       xxhash
-       eigen3
-       ${IPU_CTX_DEPS}
-       dlpack
-       phi
-       common)
+  DEPS phi)
 
 # Manage all device event library
 set(DEVICE_EVENT_LIBS)
