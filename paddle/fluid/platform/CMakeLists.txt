@@ -25,7 +25,7 @@ cc_library(
 cc_library(
   device_context
   SRCS device_context.cc
-  DEPS phi)
+  DEPS ${IPU_CTX_DEPS} phi)
 
 # Manage all device event library
 set(DEVICE_EVENT_LIBS)
